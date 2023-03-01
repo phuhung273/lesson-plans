@@ -1,7 +1,7 @@
 class DummyDataStructure {
-  data: number[];
+  data: any[];
 
-  constructor(data: number[]) {
+  constructor(data: any[]) {
     this.data = data;
   }
 
@@ -12,7 +12,7 @@ class DummyDataStructure {
 }
 
 class DummyIterator {
-  data: number[];
+  data: any[];
   left: number;
   right: number;
   isLeft: boolean;
