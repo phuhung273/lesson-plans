@@ -1,0 +1,13 @@
+// Client is required to send signature
+const bytes = CryptoJS.HmacSHA256(pm.request.body.raw, 'password')
+const sign = CryptoJS.enc.Hex.stringify(bytes)
+
+pm.request.headers.add({
+    key: 'x-signature',
+    value: sign,
+})
+
+// Simulate hacker add more data to request
+const body = JSON.parse(pm.request.body.raw);
+body.hello = 'world';
+pm.request.body.raw = body;
