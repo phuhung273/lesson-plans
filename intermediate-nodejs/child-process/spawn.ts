@@ -1,8 +1,8 @@
-const { spawn } = require('child_process');
-const http = require('http');
+import { spawn } from 'child_process';
+import { createServer, IncomingMessage, ServerResponse } from 'http';
 const port = 8000;
 
-function handle(req, res) {
+function handle(req: IncomingMessage, res: ServerResponse) {
     req.on('data', chunk => {
     });
 
@@ -12,13 +12,13 @@ function handle(req, res) {
             res.write(data.toString());
         })
 
-        command.stdout.on('close', code => {
+        command.stdout.on('close', () => {
             res.end();
         })
     });
 }
 
-const server = http.createServer(handle);
+const server = createServer(handle);
 
 server.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

@@ -27,7 +27,7 @@ app.post('/login', async (req, res) => {
     res.send(publicKey);
 })
 
-const privateKeyPath = './privateKey.pem';
+const privateKeyPath = __dirname + '/privateKey.pem';
 
 app.post('/', async (req, res) => {
     // Wrong: do not store private key on the server
