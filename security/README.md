@@ -19,3 +19,9 @@
   - payment provider and merchant, only payment provider have to verify merchant
 - When RSA: public verification
   - E2E encryption
+
+### JSON Web Token
+- A standard way to securely send a message
+- 3 parts: algorithm, data and signature
+- Oldschool way: [see Hmac](#hmac) - send body and signature (can be in header, also in body)
+- JWT way: everything in an encoded message
